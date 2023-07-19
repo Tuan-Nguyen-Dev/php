@@ -1,4 +1,14 @@
 <?php
+
+//kiểm tra nếu không có tồn tại biến $_SESSION['email']
+session_start();
+if (!isset($_SESSION['email'])) {
+    header('location: login.php');
+    exit();
+}
+
+
+
 include_once("../database/conection.php");
 $result = $dbConn->query("SELECT id, name, price, quantity, image FROM products");
 ?>
@@ -33,43 +43,19 @@ $result = $dbConn->query("SELECT id, name, price, quantity, image FROM products"
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-outline-success me-2" type="submit">Search</button>
+                    <a href="./login.php" class="btn btn-primary">Login</a>
                 </form>
             </div>
         </div>
     </nav>
 
-    <!-- <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-
-
-                </ul>
-                <form class="d-flex mt-3">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success me-2" type="submit">Search</button>
-                    <a href="./login.php" class="btn btn-primary">Login</a>
-
-                </form>
-            </div>
-        </div> -->
-
     <div class="container mt-3">
         <h2>Danh sách sản phẩm</h2>
         <p>
             <a href="./instert.php" class="btn btn-success">Thêm mới</a>
+            <a href="#" class="btn btn-secondary">Thêm mới danh mục</a>
+            <a href="./logout.php" class="btn btn-danger">Log out</a>
         </p>
         <table class="table">
             <thead>

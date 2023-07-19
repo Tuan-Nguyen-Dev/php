@@ -91,11 +91,29 @@ if (isset($_POST['submit'])) {
         const form = document.getElementById('form');
         form.addEventListener('submit', (e) => {
             const name = document.getElementById('name').value;
+            const productPrice = document.getElementById('price').value;
+            const productQuantity = document.getElementById('quantity').value;
             if (!name || name.trim().lenth == 0) {
                 swal('Vui lòng nhập tên sản phẩm');
                 e.preventDefault(); // dừng submit form
                 return false;
             }
+            if (productPrice.trim() === "") {
+                swal('Vui lòng nhập giá sản phẩm');
+                e.preventDefault(); // dừng submit form
+                return false;
+            }
+            if (productPrice < 0) {
+                swal('Giá sản phẩm không được nhập số âm');
+                e.preventDefault(); // dừng submit form
+                return false;
+            }
+            if (productQuantity.trim() === "") {
+                swal('Vui lòng nhập số lượng sản phẩm');
+                e.preventDefault(); // dừng submit form
+                return false;
+            }
+
             //submit form
             return true;
         })
