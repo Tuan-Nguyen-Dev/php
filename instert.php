@@ -1,5 +1,5 @@
 <?php
-include_once("../database/conection.php");
+include_once("./database/conection.php");
 $categories = $dbConn->query("SELECT id, name FROM categories");
 ?>
 
@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
 
     <div class="container mt-3">
         <h2>Thêm sản phẩm</h2>
-        <form action="./instert.php" method="post" id="form" enctype="multipart/form-data">
+        <form action="instert.php" method="post" id="form" enctype="multipart/form-data">
             <div class="mb-3 mt-3">
                 <label for="name">Tên sản phẩm:</label>
                 <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">

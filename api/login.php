@@ -6,7 +6,7 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-include_once("../database/connection.php");
+include_once("../database/conection.php");
 try {
     //code...
 
@@ -29,8 +29,8 @@ try {
             //trả về thông tin user dưới dạng json
             echo json_encode(array(
                 "status" => true,
-                "id" => $id,
-                "email" => $email
+                "email" => $email,
+                "id" => $id
             ));
         } else {
             echo json_encode(array(

@@ -5,7 +5,7 @@ if (isset($_SESSION['email'])) {
     exit();
 }
 
-include_once("../database/conection.php");
+include_once("./database/conection.php");
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $pswd = $_POST['pswd'];
@@ -31,10 +31,7 @@ if (isset($_POST['submit'])) {
     }
 }
 
-
 ?>
-
-
 
 
 <!DOCTYPE html>

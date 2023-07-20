@@ -1,7 +1,7 @@
 <?php
 // http://127.0.0.1:3456/edit.php?id=2
 //including the database connection file
-include_once("../database/conection.php");
+include_once("./database/conection.php");
 ?>
 <?php
 // xử lý update sản phẩm
